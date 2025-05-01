@@ -36,7 +36,10 @@ The project uses an **eye disease classification dataset** with four categories:
 
 Each category contains 1000+ labeled images. The dataset is used to train and evaluate the model on eye disease detection.
 
+📥 [Download Dataset](https://www.kaggle.com/datasets/gunavenkatdoddi/eye-diseases-classification)
+
 ---
+
 
 ## **Setup Instructions**
 
@@ -121,19 +124,11 @@ The model is evaluated using the following metrics:
 
 ## **Screenshots**
 
-### **Model Prediction Example**
+![Image](https://github.com/user-attachments/assets/6305527f-fe91-4a0b-8cf4-6f99b7bc6ed2)
+![Image](https://github.com/user-attachments/assets/e204cd3b-806d-4c29-8abe-0294f3e63271)
+![Image](https://github.com/user-attachments/assets/7f7fe767-2685-4108-9ff0-516cf604d5c1)
 
-Below is an example of how the model performs when detecting eye diseases from medical images.
 
-**Before Prediction (Image Input):**
-
-![Test Image](images/test_image.jpg)
-
-**After Prediction (Model Output):**
-
-![Prediction Output](images/prediction_result.jpg)
-
-The model predicts that the image shows a **cataract**.
 
 ---
 
@@ -162,6 +157,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## **Contact**
-
-For any inquiries, feel free to reach out to [your-email@example.com](mailto:your-email@example.com).
