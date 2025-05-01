@@ -1,0 +1,68 @@
+# Step 1: Image upload
+st.subheader("Step 1: Upload an Eye Image")
+uploaded_image = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
+
+
+
+
+
+if uploaded_image is not None:
+    # Display the uploaded image
+    image = Image.open(uploaded_image)
+
+    display_image = image.copy()
+    display_image.thumbnail((100, 100))  # Resize for UI display
+    st.image(display_image, caption="Uploaded Image",use_container_width=False)
+    image = np.array(image)
+    
+
+    # Step 2: Image Analysis
+    st.subheader("Step 2: Analyzing the image...")
+    with st.spinner('Processing...'):
+        # Call the prediction function
+        predicted_label,predicted_probability=predict(image)
+
+
+    # Step 3: Display the results
+    st.subheader(f"Diagnosis Result: {predicted_label}")
+    st.write(f"Prediction probabilities: {(predicted_probability*100):.2f}%")
+    
+    
+    
+
+    if predicted_label == 'cataract':
+        st.write("""
+        **Cataract**: A cataract is a clouding of the eye's natural lens, affecting vision.
+        - Symptoms: Blurry vision, glare, and difficulty seeing at night.
+        - Treatment: Surgery is often required to remove the cloudy lens.
+        """)
+    elif predicted_label == 'diabetic_retinopathy':
+        st.write("""
+        **Diabetic Retinopathy**: A complication of diabetes affecting the blood vessels in the retina.
+        - Symptoms: Blurred vision, seeing floaters, and vision loss.
+        - Treatment: Laser therapy or injection treatments can help manage it.
+        """)
+    elif predicted_label == 'glaucoma':
+        st.write("""
+        **Glaucoma**: A group of eye conditions that damage the optic nerve, often due to increased eye pressure.
+        - Symptoms: Peripheral vision loss, eye pain, and blurred vision.
+        - Treatment: Medication or surgery to lower eye pressure.
+        """)
+    else:
+        st.write("""
+        **Normal**: The image appears to be healthy. However, it is always best to consult a healthcare professional for a thorough examination.
+        """)
+
+    # Step 4: Next Steps / Recommendations
+    st.subheader("Next Steps:")
+    st.write("""
+    - Please consult a healthcare professional for further evaluation and diagnosis.
+    - [Click here to learn more about eye diseases](#).
+    - [Download your diagnosis report](#).
+    """)
+
+
+
+# Error Handling
+else:
+    st.info("Please upload an image of the eye to begin the diagnosis.")

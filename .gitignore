@@ -1,0 +1,15 @@
+# Ignore Conda environment directory
+.conda/
+
+# Python-related
+__pycache__/
+*.py[cod]
+*.ipynb_checkpoints/
+
+# VSCode settings
+.vscode/
+
+# System files
+.DS_Store
+Thumbs.db
+training_result/
